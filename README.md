@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>2048</title>
+   <div class="container">
+   
     <link href="https://github.com/eLeVeNnN/my2048/blob/master/my2048/style-pc.css" rel="stylesheet" type="text/css">
     <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://github.com/eLeVeNnN/my2048/blob/master/my2048/midware.js"></script>
     <script src="https://github.com/eLeVeNnN/my2048/blob/master/my2048/animation.js"></script>
     <script src="https://github.com/eLeVeNnN/my2048/blob/master/my2048/main.js"></script>
-</head>
-<body>
-   <div class="container">
        <header>
        <div class="title">
        <h1>2048</h1>
@@ -42,5 +36,3 @@
            <a href="javascript:reStart()">再来一次</a>
        </div>
    </div>
-</body>
-</html>
