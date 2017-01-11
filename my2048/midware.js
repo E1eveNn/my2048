@@ -24,31 +24,30 @@ function setColor(num){
     return '#fff'
 }
 function setFont(num){
-    if(num<=8){ return '48px'}
-    else if(num<128){return '42px'}
-    else if(num<1024){return '36px'}
-    return '30px'
+    if(num<=8){ return '0.5rem'}
+    else if(num<128){return '0.46rem'}
+    else if(num<1024){return '0.4rem'}
+    return '0.34rem'
 
 }
+function canMoveLeft( board ){
+    var nowR=$('.number-cell:last').data('row')+1
+    var nowC=$('.number-cell:last').data('col')+1
+    for( var i = 0 ; i < nowR ; i ++ )
+        for( var j =1; j <nowC ; j ++ )
+            if( board[i][j] != 0 )
+                if( board[i][j-1] == 0 || board[i][j-1] == board[i][j] )
+                    return true;
 
-function canMoveLeft(board){
-    var nowR=$('.number-cell:last').data('row')
-    var nowC=$('.number-cell:last').data('col')
-    for(i=0;i<nowR+1;i++){
-        for(j=1;j<nowC+1;j++){
-            if(board[i][j]!=0){
-                if(board[i][j-1]==0||board[i][j-1]==board[i][j]){
-                    return true
-                }
-            }
-        }
-    }
-    return false
+    return false;
 }
+
 function canMoveRight( board ){
-
-    for( var i = 0 ; i < 4 ; i ++ )
-        for( var j = 2; j >= 0 ; j -- )
+    var nowR=$('.number-cell:last').data('row')+1
+    var nowC=$('.number-cell:last').data('col')+1
+    var RnowC=nowC-2
+    for( var i = 0 ; i < nowR ; i ++ )
+        for( var j = RnowC; j >= 0 ; j -- )
             if( board[i][j] != 0 )
                 if( board[i][j+1] == 0 || board[i][j+1] == board[i][j] )
                     return true;
@@ -57,9 +56,10 @@ function canMoveRight( board ){
 }
 
 function canMoveUp( board ){
-
-    for( var j = 0 ; j < 4 ; j ++ )
-        for( var i = 1 ; i < 4 ; i ++ )
+    var nowR=$('.number-cell:last').data('row')+1
+    var nowC=$('.number-cell:last').data('col')+1
+    for( var j = 0 ; j < nowC ; j ++ )
+        for( var i = 1 ; i < nowR ; i ++ )
             if( board[i][j] != 0 )
                 if( board[i-1][j] == 0 || board[i-1][j] == board[i][j] )
                     return true;
@@ -68,9 +68,11 @@ function canMoveUp( board ){
 }
 
 function canMoveDown( board ){
-
-    for( var j = 0 ; j < 4 ; j ++ )
-        for( var i = 2 ; i >= 0 ; i -- )
+    var nowR=$('.number-cell:last').data('row')+1
+    var nowC=$('.number-cell:last').data('col')+1
+    var DnowR=nowR-2
+    for( var j = 0 ; j < nowC ; j ++ )
+        for( var i = DnowR ; i >= 0 ; i -- )
             if( board[i][j] != 0 )
                 if( board[i+1][j] == 0 || board[i+1][j] == board[i][j] )
                     return true;
